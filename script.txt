@@ -1,0 +1,67 @@
+// Seleciona o elemento HTML do formulário com ID "formCadastro"
+const form = document.getElementById("formCadastro");
+
+// Seleciona o elemento HTML que mostra a mensagem de sucesso com ID "mensagemSucesso"
+const mensagem = document.getElementById("mensagemSucesso");
+
+// Seleciona o campo de entrada de senha
+const senha = document.getElementById('senha');
+
+// Seleciona o campo de confirmação de senha
+const confirmarSenha = document.getElementById('confirmar-senha');
+
+// Função para validar a senha em tempo real
+function validarSenha() {
+    // Verifica se a senha tem pelo menos 6 caracteres E se coincidem
+    if (senha.value.length >= 6 && senha.value === confirmarSenha.value) {
+        // Muda a cor da borda da senha para verde (válida)
+        senha.style.borderColor = 'green';
+        // Muda a cor da borda da confirmação para verde (válida)
+        confirmarSenha.style.borderColor = 'green';
+        // Exibe a mensagem de sucesso
+        mensagem.style.display = "block";
+    } else if (senha.value.length > 0 && confirmarSenha.value.length > 0) {
+        // Se houver digitação e as senhas não coincidem
+        if (senha.value !== confirmarSenha.value) {
+            // Muda a cor da borda da confirmação para vermelho (não coincide)
+            confirmarSenha.style.borderColor = 'red';
+            // Esconde a mensagem de sucesso
+            mensagem.style.display = "none";
+        }
+    }
+}
+
+// Adiciona evento de digitação no campo de senha para validação em tempo real
+senha.addEventListener('input', validarSenha);
+
+// Adiciona evento de digitação no campo de confirmação de senha para validação em tempo real
+confirmarSenha.addEventListener('input', validarSenha);
+
+// Adiciona um ouvinte de evento para quando o formulário for submetido
+form.addEventListener("submit", function (event) {
+    // Impede o comportamento padrão do formulário (recarregar a página)
+    event.preventDefault();
+
+    // Verifica se a senha tem pelo menos 6 caracteres E se coincide com a confirmação
+    if (senha.value.length >= 6 && senha.value === confirmarSenha.value) {
+        // Se válido, muda a cor da borda da senha para verde
+        senha.style.borderColor = 'green';
+        // Muda a cor da borda da confirmação de senha para verde
+        confirmarSenha.style.borderColor = 'green';
+
+        // Exibe a mensagem de sucesso tornando-a visível na página
+        mensagem.style.display = "block";
+        // Limpa todos os campos do formulário após o cadastro bem-sucedido
+        form.reset();
+    } else {
+        // Se a senha for inválida, muda a cor da borda da senha para vermelho
+        senha.style.borderColor = 'red';
+        // Muda a cor da borda da confirmação de senha para vermelho
+        confirmarSenha.style.borderColor = 'red';
+        // Exibe um alerta informando ao usuário o motivo do erro
+        alert('Senha inválida: deve ter pelo menos 6 caracteres e coincidir com a confirmação.');
+        // Esconde a mensagem de sucesso já que o formulário não foi validado
+        mensagem.style.display = "none";
+    }
+});
+
