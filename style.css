@@ -1,0 +1,61 @@
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(315deg, #5A4FCF 0%, #242124 74%);
+    margin: 0%;
+    padding: 0;
+}
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #522f92;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+	transition: all 0.3s ease;
+
+}
+button:hover {
+    background-color: #6c3cff;
+	transition: 0.3s;
+    color: #5B21F447;
+    padding: 10px 85px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.9s ease; /* Faz a animação ser suave */
+    cursor: pointer;
+}
+
+.mensagem {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+    display: none;
+}
