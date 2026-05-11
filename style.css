@@ -73,3 +73,10 @@ button:hover {
     margin-top: 1px;
 }
 
+input:not(:placeholder-shown):valid {
+  border-color: green;
+}
+
+input:not(:placeholder-shown):invalid {
+  border-color: red;
+}
